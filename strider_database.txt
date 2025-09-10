@@ -1,0 +1,165 @@
+//1. Creating a Database
+use strider_1;
+
+db.createCollection("users");
+db.users.insertMany([
+  {
+    email: "john.doe@example.com",
+    password: "hashed_password",
+    name: "John Doe",
+    postCode: "12345",
+    address: "1234 Main St",
+  },
+  {
+    email: "sarperuzun1@gmail.com",
+    password: "$2a$12$RwH1V3LxA8qcfvoiBscvQ.FrpMwdBdzF9M7escSynboq2fiKfRBbS",
+    name: "Sarper",
+    postCode: "B4 7DR",
+    address: "Birmingham, UK",
+    __v: 0,
+  },
+]);
+
+//2.Create items collection
+db.createCollection("items");
+db.items.insertMany([
+  {
+    name: "Travis Scott Air Jordan 1 Low",
+    desc: "Travis Scott x Air Jordan 1 Low, supplied by a premier sneaker marketplace, features unique design and limited production, ensuring rarity and authenticity.",
+    price: 2850,
+    category: "Jordan",
+    photo: "jordan1.1.webp",
+  },
+  {
+    name: "DIOR X Air Jordan 1 Low",
+    desc: "Dior X Air Jordan 1 Low fuses luxury fashion with sneaker culture, featuring the iconic Jordan silhouette enhanced by Dior's premium materials and refined details.",
+    price: 3150,
+    category: "Jordan",
+    photo: "jordan2.2.webp",
+  },
+  {
+    name: "Minecraft X Air Jordan 1 High OG",
+    desc: "Minecraft X Air Jordan 1 High OG merges gaming culture with classic sneaker design, blending the iconic Jordan silhouette with Minecraft's pixelated aesthetic for a unique, playful look.",
+    price: 1350,
+    category: "Jordan",
+    photo: "jordan5.webp",
+  },
+  {
+    name: "Air Jordan 3 Black Dessert Edition",
+    desc: "Air Jordan 3 Black Desert Edition combines rugged elegance with iconic design, featuring a sleek black upper with earthy tones for a refined, versatile look.",
+    price: 2200,
+    category: "Jordan",
+    photo: "jordan9.webp",
+  },
+  {
+    name: "Nike Air Force 1 Low SevenCrew Edition",
+    desc: "Nike Air Force 1 SevenCrew Edition reimagines the classic silhouette with bold, custom details, celebrating street culture and creative expression.",
+    price: 4300,
+    category: "Nike",
+    photo: "nike1.jpg",
+  },
+  {
+    name: "Nike Air Force 1 Low Louis Vuitton Dark",
+    desc: "Nike Air Force 1 Low Louis Vuitton Dark Black merges classic sneaker style with high-end luxury, featuring a deep black colorway and exclusive Louis Vuitton details for an elegant, sophisticated look.",
+    price: 3750,
+    category: "Nike",
+    photo: "nike5.webp",
+  },
+  {
+    name: "Nike Air Force 1 Low Louis Vuitton Red",
+    desc: "Nike Air Force 1 Low Louis Vuitton Red pairs classic sneaker style with luxury, showcasing a striking red colorway and exclusive Louis Vuitton detailing for a high-fashion twist.",
+    price: 3300,
+    category: "Nike",
+    photo: "nike3.1.webp",
+  },
+  {
+    name: "Nike Air Force 1 Low Louis Vuitton Gold",
+    desc: "Nike Air Force 1 Low Louis Vuitton Gold combines timeless sneaker design with opulent luxury, featuring a dazzling gold finish and distinctive Louis Vuitton accents for a truly premium look.",
+    price: 7000,
+    category: "Nike",
+    photo: "nike4.webp",
+  },
+  {
+    name: "Adidas X PHARRELL Black",
+    desc: "Adidas X Pharrell Black features a sleek, minimalist design with Pharrell's signature style, combining a black colorway with unique details for a modern, versatile look.",
+    price: 1100,
+    category: "Adidas",
+    photo: "adidas1.1.webp",
+  },
+
+  {
+    name: "Adidas Gazelle Black",
+    desc: "Adidas Gazelle Black delivers a timeless look with its classic black suede upper and minimalist design, offering versatile style and comfort in a sleek, iconic silhouette.",
+    price: 150,
+    category: "Adidas",
+    photo: "adidas3.1.jpg",
+  },
+  {
+    name: "Adidas RockStar Red and Gold",
+    desc: "Adidas RockStar Red and Gold combines vibrant red with striking gold accents, creating a bold, eye-catching sneaker that stands out with a luxurious, energetic vibe.",
+    price: 2210,
+    category: "Adidas",
+    photo: "adidas4.jpg",
+  },
+  {
+    name: "Adidas Space Boots",
+    desc: "Adidas Space Boots blend futuristic design with high-performance functionality, featuring a sleek, avant-garde look inspired by space exploration for a bold, otherworldly statement.",
+    price: 1500,
+    category: "Adidas",
+    photo: "adidas9.jpg",
+  },
+
+  {
+    name: "Yeezy Black Grey Mix",
+    desc: "Yeezy Black Grey Mix offers a striking, versatile look with a blend of black and grey tones, combining modern design elements with understated elegance for a sleek, contemporary sneaker.",
+    price: 1750,
+    category: "Yeezy",
+    photo: "yeezy1.jpg",
+  },
+  {
+    name: "Yeezy SeaLand",
+    desc: "Yeezy SeaLand features a unique, ocean-inspired colorway with subtle, aquatic hues, blending modern design with a tranquil aesthetic for a fresh, standout look",
+    price: 550,
+    category: "Yeezy",
+    photo: "yeezy2.webp",
+  },
+  {
+    name: "Yeezy Unique Jump Black",
+    desc: "Yeezy Unique Jump Black showcases a bold design with a sleek, all-black colorway, offering a standout, modern aesthetic that combines minimalist style with dynamic flair.",
+    price: 1000,
+    category: "Yeezy",
+    photo: "yeezy3.webp",
+  },
+  {
+    name: "Yeezy Green Mamba",
+    desc: "Yeezy Green Mamba features a striking green colorway with a distinctive, textured finish, blending bold aesthetics with Yeezy's signature modern design for a unique, standout look.",
+    price: 2400,
+    category: "Yeezy",
+    photo: "yeezy5.jpg",
+  },
+]);
+
+//2.3- Cart Collection:
+db.createCollection("cart");
+db.cart.insertOne({
+  userId: "user_id",
+  itemId: "item_id",
+  qty: 2,
+  ordered: false,
+});
+
+//2.4- Orders Collection:
+db.createCollection("orders");
+db.orders.insertOne({
+  userId: "user_id",
+  orderDate: new Date(),
+  status: "Pending",
+});
+
+//2.5- OrderDetails Collection:
+db.createCollection("orderDetails");
+db.orderDetails.insertOne({
+  orderId: "order_id",
+  itemId: "item_id",
+  qty: 2,
+});
