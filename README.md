@@ -133,6 +133,3 @@ MIT License – Free to use, customize, and build upon.
 
 
 # Sneaker_Website
-# Sneaker_Website
-# Sneaker_Website
-# Sneaker_Website
